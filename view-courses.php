@@ -9,7 +9,7 @@
     </thread>
     <tbody>
   <?php
-  while ($course = $courses->fetch_assoc()) [
+  while ($course = $courses->fetch_assoc()) {
   ?>
     <tr>
       <td><?php echo $course{'course_id']; ?></td>
@@ -17,7 +17,7 @@
       <td><?php echo $course{'credits']; ?></td>
     </tr>
   <?php
-  ]
+  }
   ?>
       </tbody>
     </table>
