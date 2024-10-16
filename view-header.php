@@ -1,33 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?=$pageTitle?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="courses.php">Courses</a>
-        </li>
-     <li class="nav-item">
-          <a class="nav-link" href="students.php">Students</a>
-        </li><li class="nav-item">
-          <a class="nav-link" href="courses-with-students.php">Courses with Students</a>
-        </li>
-      </ul>     
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Courses</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Credits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                try {
+                    $courses = selectCourses();
+                    while ($course = $courses->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($course['course_id']) . "</td>";
+                        echo "<td>" . htmlspecialchars($course['course_name']) . "</td>";
+                        echo "<td>" . htmlspecialchars($course['credits']) . "</td>";
+                        echo "</tr>";
+                    }
+                } catch (Exception $e) {
+                    echo "<tr><td colspan='3'>Error: " . htmlspecialchars($e->getMessage()) . "</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
     </div>
-  </div>
-</nav>
+</body>
+</html>
+
