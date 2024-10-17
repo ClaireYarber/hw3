@@ -5,7 +5,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Credits</th>
+        <th>Class</th>
       </tr>
     </thead>
     <tbody>
@@ -13,9 +13,9 @@
   while ($course = $courses->fetch_assoc()) {
   ?>
     <tr>
-      <td><?php echo $course['course_id']; ?></td>
-      <td><?php echo $course['course_name']; ?></td>
-      <td><?php echo $course['credits']; ?></td>
+      <td><?php echo $course['student_id']; ?></td>
+      <td><?php echo $course['student_name']; ?></td>
+      <td><?php echo $course['class']; ?></td>
     </tr>
   <?php
   }
