@@ -10,12 +10,12 @@
     </thead>
     <tbody>
   <?php
-  while ($course = $courses->fetch_assoc()) {
+  while ($student = $students->fetch_assoc()) {
   ?>
     <tr>
-      <td><?php echo $course['student_id']; ?></td>
-      <td><?php echo $course['student_name']; ?></td>
-      <td><?php echo $course['class']; ?></td>
+      <td><?php echo $student['student_id']; ?></td>
+      <td><?php echo $student['student_name']; ?></td>
+      <td><?php echo $student['class']; ?></td>
     </tr>
   <?php
   }
