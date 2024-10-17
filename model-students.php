@@ -3,7 +3,7 @@ function selectStudents() {
     $conn = null;
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("SELECT course_id, course_name, credits FROM `courses`");
+        $stmt = $conn->prepare("SELECT student_id, student_name_name, class FROM `students` ");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result;
